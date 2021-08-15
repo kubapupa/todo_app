@@ -1,0 +1,19 @@
+<% if @task.errors.any? %>
+    <%= render 'error' %>
+<% end %>
+<%= form_with do |form| %>
+    <div id="new-form" class="mt-5">
+        <div class="mb-3">
+            <%= form.label 'Nazwa użytkownika', class: 'form-label', for: 'exampleFormControlInput1' %>
+            <%= form.text_field :username, class: 'form-control', id: 'exampleFormControlInput1', placeholder: 'Np. użytkownik99' %>
+        </div>
+        <div class="mb-3">
+            <%= form.label 'Zadanie', class: 'form-label', id: 'exampleFormControlTextarea1' %>
+            <%= form.text_area :content, class: 'form-control', id: 'exampleFormControlTextarea1', rows: '3', placeholder: 'Np. zrobić coś' %>
+        </div>
+        <div class="d-flex justify-content-around">
+            <%= form.submit 'Dodaj zadanie', class: 'btn btn-primary btn-lg mt-5', id: 'add-button'%>
+            <%= link_to 'Anuluj dodawanie', root_path, class: 'btn btn-danger btn-lg mt-5' %>
+        </div>
+    </div>
+<% end %>
